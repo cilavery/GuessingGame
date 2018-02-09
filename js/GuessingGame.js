@@ -4,8 +4,6 @@ function generateWinningNumber() {
 
 Game.prototype.generateRandomNumber = function() {
     var ranNum = 100 - this.playersGuess;
-    console.log(this.playersGuess, ranNum, this.isLower());
-
     if (this.isLower()) {
         return this.playersGuess + Math.floor(Math.random() * ranNum)
     } else {
