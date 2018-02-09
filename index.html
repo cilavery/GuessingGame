@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Guess A Number</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Rubik+Mono+One|Inconsolata" rel="stylesheet">
+  </head>
+  <body>
+
+      <div id='app' class='center'>
+        <div id='headers'>
+          <!-- Title and subtitles! -->
+          <h1>Guessing Game</h1>
+          <h4 id='message'>Go ahead, guess a number from 1 - 100:</h4>
+        </div>
+
+        <div id='main'>
+          <div id='parent-input'>
+            <!-- Player's guess input, and submit button -->
+            <form>
+                <input id="player-input" type="text" placeholder="#" maxlength="3">
+                <button type="button" class="btn btn-success" id="submit" autofocus>GO!</button>
+            </form>
+            
+          </div>
+
+          <div>
+            <!-- unordered list of guesses -->
+            <div class='hintSection' id='parentWrap'>
+            
+            </div>
+            <form id='guesses'>
+                <ul id='guessBox'>
+                    <li class='guess'>#</li>
+                    <li class='guess'>#</li>
+                    <li class='guess'>#</li>
+                    <li class='guess'>#</li>
+                    <li class='guess'>#</li>
+                </ul>
+                
+            </form>
+          </div>
+          
+          <div id="menu-btns">
+            <!-- reset and hint buttons -->
+            <form>
+                <button type="button" class="btn btn-info menu">Hint</button>
+                <button type="button" class="btn btn-danger menu">Reset</button>
+            </form>
+          </div>
+        </div>
+      
+      </div>
+
+ 
+
+    <div id='footer' class='center'>
+        <div class='row'>
+                <div class='col-sm-4'>
+                    <img class="img-responsive" src='fa-logo@2x.png'></img>
+                </div>
+
+                <div class='col-sm-4'>
+                    <h4>Project by Cecilia Song Avery</h4>
+                </div>
+
+                <div class='col-sm-4'>
+                    <img class="img-responsive" src='grace_hopper_academy.png'></img>
+                </div>
+        </div>
+        
+        </div>
+      </div>
+
+  </body>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src='js/GuessingGame.js'></script>
+</html>

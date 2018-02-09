@@ -1,0 +1,142 @@
+
+
+/*
+* {
+    border: 1px solid black;
+}
+*/
+
+
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #44304F;
+    background: repeating-linear-gradient(
+  45deg,
+  rgb(76, 34, 88),
+  rgb(76, 34, 88) 10px,
+  #8d2f69 10px,
+  #8d2f69  20px
+);
+}
+
+h1 {
+    padding-top: 20px;
+    font-family: 'Rubik Mono One', sans-serif; 
+    font-size: 3em;
+    text-shadow: -4px 4px rgb(231, 76, 60);
+    color: rgb(108, 240, 108)
+}
+
+h4 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.5em;
+}
+
+#headers {
+    color: white;
+}
+.center {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    display: inline;
+    width: 200px;
+    padding: 20px;
+}
+
+#footer {
+    width: 100%;
+    border-top: solid 7px rgb(231, 76, 60);
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+
+#parent-input {
+    width: 160px;
+    margin-left: auto;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+}
+
+.guess {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #F4D03F;
+    background: black;
+    padding: 8px;
+    color: white;
+    font-size: 2.5em;
+    margin-top: 5px;
+    border-radius: 10px;
+
+}
+
+#player-input {
+    width: 170px;
+    height: 170px;
+    font-size: 5em;
+    text-align: center;
+    border-radius: 100px;
+}
+
+#submit {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    font-size: 1.5em;
+    position: absolute;
+    right: -30px;
+    top: 120px;
+    color: white;
+}
+
+#menu-btns {
+    margin-bottom: 250px;
+}
+
+.menu {
+    font-size: 1.6em;
+    width: 100px;
+}
+
+.col-sm-4 h4{
+    padding-top: 30px;
+    font-size: 1.5em;
+}
+
+.hidden {
+    background-color: #30d2ff;
+    color: #E74C3C;
+    border-radius: 50px;
+    padding-bottom: 43px;
+    opacity: 40%;
+}
+
+.hintSection {
+    display: inline-block;
+    color: white;
+    height: 40px;
+    width: 550px;
+    font-size: 1.5em;
+    padding-top: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Inconsolata', monospace;
+}
+
+#parentWrap {
+    vertical-align: top;
+}
