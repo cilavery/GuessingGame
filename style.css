@@ -22,7 +22,7 @@ body {
 
 h1 {
     padding-top: 20px;
-    font-family: 'Rubik Mono One', sans-serif; 
+    font-family: 'Rubik Mono One', sans-serif;
     font-size: 3em;
     text-shadow: -4px 4px rgb(231, 76, 60);
     color: rgb(108, 240, 108)
@@ -68,6 +68,7 @@ img {
     margin-top: 30px;
     display: inline-block;
     position: relative;
+
 }
 
 .guess {

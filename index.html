@@ -20,17 +20,17 @@
         <div id='main'>
           <div id='parent-input'>
             <!-- Player's guess input, and submit button -->
-            <form>
-                <input id="player-input" type="text" placeholder="#" maxlength="3">
-                <button type="button" class="btn btn-success" id="submit" autofocus>GO!</button>
-            </form>
-            
+
+                <input id='player-input' placeholder="#" maxlength='3' autocomplete='off' autofocus></input>
+                <button type="button" class="btn btn-success" id="submit">GO!</button>
+
+
           </div>
 
           <div>
             <!-- unordered list of guesses -->
             <div class='hintSection' id='parentWrap'>
-            
+
             </div>
             <form id='guesses'>
                 <ul id='guessBox'>
@@ -40,22 +40,22 @@
                     <li class='guess'>#</li>
                     <li class='guess'>#</li>
                 </ul>
-                
+
             </form>
           </div>
-          
+
           <div id="menu-btns">
             <!-- reset and hint buttons -->
             <form>
-                <button type="button" class="btn btn-info menu">Hint</button>
-                <button type="button" class="btn btn-danger menu">Reset</button>
+                <button type="button" class="btn btn-info menu" id='hint'>Hint</button>
+                <button type="button" class="btn btn-danger menu" id='reset'>Reset</button>
             </form>
           </div>
         </div>
-      
+
       </div>
 
- 
+
 
     <div id='footer' class='center'>
         <div class='row'>
@@ -71,7 +71,7 @@
                     <img class="img-responsive" src='grace_hopper_academy.png'></img>
                 </div>
         </div>
-        
+
         </div>
       </div>
 

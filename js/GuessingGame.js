@@ -13,7 +13,7 @@ Game.prototype.generateRandomNumber = function() {
 
 function shuffle(arr) {
     var arrLength = arr.length;
-    var t; 
+    var t;
     var i;
 
     while (arrLength) {
@@ -53,18 +53,18 @@ Game.prototype.playersGuessSubmission = function(num) {
 }
 
 Game.prototype.checkGuess = function() {
-    
+
     if (this.playersGuess === this.winningNumber) {
         return 'You Win!'
     } else if (this.pastGuesses.includes(this.playersGuess)) {
         return 'You have already guessed that number.'
     }
-    
+
     this.pastGuesses.push(this.playersGuess);
 
     if (this.pastGuesses.length === 5) {
         return 'You Lose.'
-    } 
+    }
 
     if (this.difference() < 10) {
         return 'You\'re so close!';
@@ -74,11 +74,11 @@ Game.prototype.checkGuess = function() {
         return 'You\'re lukewarm.';
     } else if (this.difference() < 100) {
         return 'You\'re ice cold!';
-    }       
+    }
 }
 
 Game.prototype.provideHint = function() {
-    var hints = [];  
+    var hints = [];
     var randomHints = [];
     for (var i = 0; i < 3; i++) {
         randomHints.push(this.generateRandomNumber());
@@ -95,47 +95,73 @@ Game.prototype.provideHint = function() {
     return hints;
 }
 
+function reset(game) {
+  game.pastGuesses = [];
+  newGame = new Game();
+  hintTrys = 2;
+  $('#player-input').val('');
+  $('h1').text('GUESSING GAME').css({'background-color': ''});
+  $('#message').text('Go ahead, guess a number from 1 - 100:');
+  $('.guess').text('#');
+  $('#submit').attr('disabled', false);
+  $('.btn-info').attr('disabled', false);
+  $('.hintSection').text('');
+  $('.hintSection').removeClass('hidden');
+}
+
+function pressedHint(game) {
+  var giveHints = game.provideHint();
+    hintTrys--;
+    if (hintTrys >= 0) {
+      $('.hintSection').text(giveHints[hintTrys]);
+    } else {
+      $('.hintSection').text('You have no more hints left!')
+    }
+  }
+
 $(document).ready(function() {
-    var newGame = new Game();    
+    newGame = new Game();
     var takesAGuess;
+    hintTrys = 2;
 
-    $('#submit').on('click', startPlay);
-    $('.btn-danger').on('click', reset);
-    $('.btn-info').on('click', pressedHint);
-    var hintTrys = 2;
+     $('#submit').on('click', function(e) {
+          startPlay(newGame);
+     });
+     $('#reset').on('click', reset);
+     $('#hint').on('click', pressedHint);
 
-    function pressedHint() {  
-        hintTrys--;
-        var giveHints = newGame.provideHint();
-        if (hintTrys >= 0) {
-            $('.hintSection').text(giveHints[hintTrys]);
-        } else {
-            $('.hintSection').text('You have no more hints left!')
-        }    
-    }
-    
-    function reset() {
-        newGame.pastGuesses = [];
-        newGame = new Game();
-        hintTrys = 2;
-        $('#player-input').attr('placeholder', '#');      
-        $('h1').text('GUESSING GAME').css({'background-color': ''});
-        $('#message').text('Go ahead, guess a number from 1 - 100:');
-        $('.guess').text('#');
-        $('#submit').attr('disabled', false);
-        $('.btn-info').attr('disabled', false);
-        $('.hintSection').text('');
-        $('.hintSection').removeClass('hidden');
-        
-    }
+     $(document).on('keyup', function(event) {
+         event.preventDefault();
+         if (event.which == 13) {
+            var focused = $(':focus');
+            var focusedId = focused.attr('id');
+            if (focusedId === 'player-input' || focusedId === 'submit') {
+              startPlay(newGame);
+            } else if (focusedId === 'hint') {
+              pressedHint(newGame);
+            } else if (focusedId === 'reset') {
+              reset(newGame);
+            }
+         }
+     });
 
-    function startPlay() {
+
+    // function pressedHint() {
+    //   hintTrys--;
+    //   if (hintTrys >= 0) {
+    //       $('.hintSection').text(giveHints[hintTrys]);
+    //   } else {
+    //       $('.hintSection').text('You have no more hints left!')
+    //   }
+    // }
+
+
+    function startPlay(game) {
         var guess = +$('#player-input').val();
         takesAGuess = newGame.playersGuessSubmission(guess);
         $('#player-input').val('');
         $('.hintSection').text('');
-        $('.hintSection').removeClass('hidden');
-        
+
         if (takesAGuess === 'That is an invalid guess.' || takesAGuess === 'You have already guessed that number.') {
             $('#message').text(takesAGuess);
         } else {
@@ -146,7 +172,7 @@ $(document).ready(function() {
                 $('#message').text(takesAGuess + ' Guess lower!');
             }
         }
-        
+
         if (takesAGuess === 'You Lose.') {
             $('h1').text('YOU LOSE').css({'background-color':'red'});
             $('#message').text('The winning number was ' + newGame.winningNumber + '. Press RESET to play again!');
@@ -157,7 +183,7 @@ $(document).ready(function() {
             $('#message').text('Press RESET to play again!');
             $('#submit').attr('disabled', true);
             $('.btn-info').attr('disabled', true);
-        } 
-    }  
+        }
+    }
 
 });
