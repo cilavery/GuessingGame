@@ -128,7 +128,9 @@ $(document).ready(function() {
           startPlay(newGame);
      });
      $('#reset').on('click', reset);
-     $('#hint').on('click', pressedHint);
+     $('#hint').click(function() {
+       return pressedHint(newGame);
+     });
 
      $(document).on('keyup', function(event) {
          event.preventDefault();
@@ -137,23 +139,9 @@ $(document).ready(function() {
             var focusedId = focused.attr('id');
             if (focusedId === 'player-input' || focusedId === 'submit') {
               startPlay(newGame);
-            } else if (focusedId === 'hint') {
-              pressedHint(newGame);
-            } else if (focusedId === 'reset') {
-              reset(newGame);
             }
          }
      });
-
-
-    // function pressedHint() {
-    //   hintTrys--;
-    //   if (hintTrys >= 0) {
-    //       $('.hintSection').text(giveHints[hintTrys]);
-    //   } else {
-    //       $('.hintSection').text('You have no more hints left!')
-    //   }
-    // }
 
 
     function startPlay(game) {
